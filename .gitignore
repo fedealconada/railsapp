@@ -17,4 +17,4 @@
 /tmp
 node_modules
 public
-
+client/npm-debug.log.*

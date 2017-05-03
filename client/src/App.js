@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import StoriesRanking from './StoriesRanking';
+import StoriesRanking from './Stories/components/Ranking';
 
 class App extends Component {
   render() {

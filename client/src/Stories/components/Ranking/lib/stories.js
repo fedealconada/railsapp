@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 
-function stories(cb) {
+function get(cb) {
   return fetch('api/newcomers/topten', {
     accept: 'application/json',
   }).then(checkStatus)
@@ -15,7 +15,7 @@ function checkStatus(response) {
   const error = new Error(`HTTP Error ${response.statusText}`);
   error.status = response.statusText;
   error.response = response;
-  console.log(error); // eslint-disable-line no-console
+  console.log(error); // TODO => deal with it!
   throw error;
 }
 
@@ -23,5 +23,5 @@ function parseJSON(response) {
   return response.json();
 }
 
-const Client = { stories };
-export default Client;
+const Stories = {get};
+export default Stories;

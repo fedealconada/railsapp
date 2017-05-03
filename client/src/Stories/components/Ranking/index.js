@@ -1,6 +1,6 @@
 import React from 'react';
-import Client from './Client';
-import Events from './Events';
+import Stories from './lib/stories';
+import Events from '../Events';
 import { ActionCable, Cable } from 'react-action-cable-fixed';
 import Spinner from 'react-spinkit';
 
@@ -17,30 +17,27 @@ class StoriesRanking extends React.Component {
     loading: false
   };
 
-  refresh = () => {
-    this.setState({
-      loading:true
-    })
-
-    Client.stories((stories) => {
+  getStories = () => {
+    Stories.get((stories) => {
       this.setState({
         stories: stories,
         loading: false,
       });
     });
+  }
+
+  refresh = () => {
+    this.setState({
+      loading:true
+    })
+    this.getStories()
   };
 
   componentDidMount() {
     this.setState({
       loading:true
     })
-
-    Client.stories((stories) => {
-      this.setState({
-        stories: stories,
-        loading: false,
-      });
-    });
+    this.getStories()
   }
 
   render() {

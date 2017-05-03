@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { CableMixin, ChannelMixin } from 'react-action-cable-fixed';
 import React from 'react';
 
