@@ -5,7 +5,7 @@ class StoriesController < ApplicationController
     hackernews = HackerNews.new("hackernews", 1)
     stories = hackernews.newstories
     stories_details = []
-    stories.take(20).each do |item|
+    stories.take(500).each do |item|
       s = hackernews.find(item)
       story = {
         :title => s["title"],
