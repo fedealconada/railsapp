@@ -50,6 +50,10 @@ Important things nice to have:
 
 ## Considerations
 - Events component (`/client/src/Events.js`) is **not** written in ES6 as it uses mixins. This could be done by refactoring the code and converting it to ES6 or using some decorator like [this](https://www.npmjs.com/package/react-mixin-decorator) one.
+- As the newstories ids retrieved from HN are 500, meaning that I would have to do 500 request to get the details for each one of the stories, I have limited the amount to 20 requests given that the HN API is a bit slow, so the deployed app won't be appreciated... This change is done on `app/controllers/stories_controller.rb` line 8, where I set the limit to 20. If 500 would be the number, we could take away the `.take(20)`.
+```ruby
+stories.take(20).each do |item|
+```
 
 ## License
 
