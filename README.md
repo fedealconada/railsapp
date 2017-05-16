@@ -22,14 +22,14 @@ Moreover, it uses ActionCable to deal with real-time communications. There is a 
 
 Find below the commands to get the app running locally:
 
-* `git clone https://git.heroku.com/battereapp.git && cd battereapp` *(Clone repo)*
+* `git clone https://git.heroku.com/newcomersapp.git && cd newcomersapp` *(Clone repo)*
 * `cd client && npm i` *(Installs npm dependencies)*
 * `redis-server` *(Starts redis server, **must be** done in a new terminal)*
 * `rake start`* *(or `rake start:development`)*
 
 \* ***rake start** is responsible for executing Procfile. You can execute it using an envinronment variable (development or production)*
 
-You can access the app deployed in Heroku [here](https://battereapp.herokuapp.com/).
+You can access the app deployed in Heroku [here](https://newcomersapp.herokuapp.com/).
 **IMPORTANT:** The app uses ActionCable to deal with real-time communications. There is a rake task (`/lib/tasks/scheduler.rake`) called `send_notification` that acts as a cron in Heroku. When it runs, it calls an API endpoint (`/api/notify`) exposed by the backend that checks if there has been updates in HN and, if there are, it sends a notification to the frontend. The crons runch every 10 minutes (minimum for free). 
 So, if you want to test this, you can simply call the api endpoint in the browser or you can also execute the cron manually, you can run `heroku rake send_notification` in the terminal (you have to be in the project directory and you must be a collaborator.
 
